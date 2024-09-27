@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Add Contact</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Add Contact</h1>
+        
+        <form method="POST" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+                <div class="invalid-feedback">
+                    Please provide a name.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+                <div class="invalid-feedback">
+                    Please provide a phone number.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+                <div class="invalid-feedback">
+                    Please provide a valid email address.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+                <div class="invalid-feedback">
+                    Please provide an address.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" class="form-control" id="company" name="company">
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea class="form-control" id="notes" name="notes"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success mb-3">Add Contact</button>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary mb-3">Cancel</a>
+        </form>
+    </div>
+
+    <script>
+        // Example of Bootstrap form validation
+        (function () {
+            'use strict'
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
